@@ -1,0 +1,99 @@
+C:\Users\17728>cd D:\project\talk\ToT2\frontend\project
+
+C:\Users\17728>cd D:
+D:\project\talk\ToT2\frontend\project
+
+C:\Users\17728>d:
+
+D:\project\talk\ToT2\frontend\project> (x)
+
+Practice : Show all users in database
+Require: To query database(1) for all users and display data on html table
+(1) Make a php script that will be called in js that returns all the data for dados
+
+(PHP)
+https://www.php.net/manual/en/mysqli.query.php
+
+Returns FALSE on failure. For successful SELECT, SHOW, DESCRIBE or EXPLAIN queries mysqli_query() will return a mysqli_result object. For other successful queries mysqli_query() will return TRUE.
+
+https://www.php.net/manual/en/class.mysqli-result.php
+dadosTablephp.img
+
+(Frontend)
+(1) Show contents in console
+
+(x)
+Requirement: Create appointments and show all appointments on table 
+
+CREATE TABLE dados (
+id INT AUTO_INCREMENT PRIMARY KEY, 
+firstname VARCHAR(30) NOT NULL,
+lastname VARCHAR(30) NOT NULL,
+email VARCHAR(50),
+reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+
+CREATE TABLE appointments (
+id_app INT AUTO_INCREMENT PRIMARY KEY, 
+id_dados INT NOT NULL,
+id_stylist INT NOT NULL,
+description VARCHAR(50),
+app_reg TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+start_time DATETIME,
+end_time DATETIME
+);
+
+**DADOS HOLDS USER ID/INFORMATION, APPOINTMENTS AND STYLIST RESPECTIVELY**
+
+FRONT END:
+
+CALENDER --> DATE(INTERVALS) -> AUTO SENDS VIA API CALL (GATHERS TIME ON DAY) -> NEED WAY TO SPECIFY TIMES AND DAYS -> SENT TO QUERY -> CHECKS FOR APPOINTMENTS HAPPENING ON CERTIAN DAY -> ALGORITHM ONLY OUTPUTS TIMES THAT ARE AVAILABLE
+         STYLIST WILL CHOSE WHEN APPOINTMENTS START AND API LIBRARY WILL AUTO CLOSE THE TIME PERIOD 
+
+
+
+mysql> desc appointments;
++-------------+-------------+------+-----+-------------------+-----------------------------+
+| Field       | Type        | Null | Key | Default           | Extra                       |
++-------------+-------------+------+-----+-------------------+-----------------------------+
+| id_app      | int(11)     | NO   | PRI | NULL              | auto_increment              |
+| id_dados    | int(11)     | NO   |     | NULL              |                             |
+| id_stylist  | int(11)     | NO   |     | NULL              |                             |
+| description | varchar(50) | YES  |     | NULL              |                             |
+| app_reg     | timestamp   | NO   |     | CURRENT_TIMESTAMP | on update CURRENT_TIMESTAMP |
+| start_time  | datetime    | YES  |     | NULL              |                             |
+| end_time    | datetime    | YES  |     | NULL              |                             |
++-------------+-------------+------+-----+-------------------+-----------------------------+
+
+INSERT INTO table_name
+VALUES (value1, value2, value3, ...);
+
+
+INSERT INTO appointments (id_dados, id_stylist, description, start_time, end_time)
+VALUES ("1", "2", "hair_SUPER", "2020-01-01T07:00:00","2020-01-01T07:30:00");
+
+mysql> select * from appointments;
++--------+----------+------------+-------------+---------------------+---------------------+---------------------+
+| id_app | id_dados | id_stylist | description | app_reg             | start_time          | end_time            |
++--------+----------+------------+-------------+---------------------+---------------------+---------------------+
+|      1 |        1 |          2 | hair        | 2020-01-02 00:13:15 | 2012-06-18 10:34:09 | 2012-06-18 10:34:09 |
+|      2 |        1 |          2 | hair_SUPER  | 2020-01-02 00:14:06 | 2020-01-01 07:00:00 | 2020-01-01 07:30:00 |
++--------+----------+------------+-------------+---------------------+---------------------+---------------------+
+2 rows in set (0.00 sec)
+
+Task: Make sylist from frontend (x)
+Task: Make appointments from frontend
+	- Create a form in HTML that will submit the data to a php script
+	- To choose a stylist, have a dropdown populated with the names of the stylist 
+	- Include a calendar view 
+	- Incorporate a function to check available times for the date selected 
+	- Have predetermined time slots to display, so the user can choose what time they want 
+******ADD to DB: Duration col in appoinment table, time the hair would take (30 mins, 1.5 , etc)***********
+
+
+
+
+
+
+
+ 
