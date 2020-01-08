@@ -29,7 +29,7 @@
     <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src * 'unsafe-inline'; media-src *" />
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
-    
+
     <!-- Good default declaration:
     * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
     * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
@@ -38,30 +38,28 @@
         * Enable eval(): add 'unsafe-eval' to default-src
     * Create your own at http://cspisawesome.com
     -->
-    
+
     <link rel="icon" type="image/png" href="images/icons/favicon.ico">
     <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
     <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
     <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
     <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="css/util.css">
-        <link rel="stylesheet" type="text/css" href="css/main.css">
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>Backend Tables</title>
 </head>
 
 <body>
-    
+
     <div class="table100 ver3 m-b-110">
         <div class="table100-head">
             <table>
@@ -81,7 +79,12 @@
 
         <div class="table100-body js-pscroll ps ps--active-y">
             <div id="dadosTable"></div>
-        <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 581px; height: 585px; right: 5px;"><div class="ps__thumb-y" tabindex="0" style="top: 292px; height: 293px;"></div></div></div>
+            <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+        </div>
+        <div class="ps__rail-y" style="top: 581px; height: 585px; right: 5px;">
+            <div class="ps__thumb-y" tabindex="0" style="top: 292px; height: 293px;"></div>
+        </div>
+    </div>
 
     </div>
 
@@ -95,12 +98,12 @@
                 <input id="styleFormName" type="text" placeholder="Name">
                 <span class="pure-form-message-inline">This is a required field.</span>
             </div>
-    
+
             <div class="pure-control-group">
                 <label for="email">Email Address</label>
                 <input id="styleFormEmail" type="email" placeholder="Email Address">
             </div>
-    
+
             <div class="pure-controls">
                 <button id="styleFormSubmit" class="pure-button pure-button-primary">Submit</button>
             </div>
@@ -109,7 +112,7 @@
 
     <h3>Stylist Table</h3>
     <div class="table100 ver3 m-b-110">
-        
+
         <div class="table100-head">
             <table>
                 <thead>
@@ -125,7 +128,12 @@
 
         <div class="table100-body js-pscroll ps ps--active-y">
             <div id="stylistTable"></div>
-        <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 581px; height: 585px; right: 5px;"><div class="ps__thumb-y" tabindex="0" style="top: 292px; height: 293px;"></div></div></div>
+            <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+        </div>
+        <div class="ps__rail-y" style="top: 581px; height: 585px; right: 5px;">
+            <div class="ps__thumb-y" tabindex="0" style="top: 292px; height: 293px;"></div>
+        </div>
+    </div>
 
     </div>
 
@@ -137,21 +145,28 @@
                 <input id="styleFormName" type="text" placeholder="Name">
                 <span class="pure-form-message-inline">This is a required field.</span>
             </div>
-    
+
             <div class="pure-control-group">
                 <label for="email">Email Address</label>
                 <input id="styleFormEmail" type="email" placeholder="Email Address">
             </div>
-    
+
+            <div class="pure-control-group">
+                <label for="date">Date</label>
+                <input id="styleFormDate" type="date" placeholder="Email Address">
+            </div>
+
+            <div class="pure-control-group" id="stylistSelect"></div>
+
             <div class="pure-controls">
-                <button id="styleFormSubmit" class="pure-button pure-button-primary">Submit</button>
+                <button id="appFormSubmit" class="pure-button pure-button-primary">Submit</button>
             </div>
         </fieldset>
     </div>
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/home.js"></script>
-    
+
 </body>
 
 </html>

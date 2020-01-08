@@ -1,16 +1,22 @@
 $(document).ready(function(){
     console.log("hey");
     
+    /* Plan us to query most of theses at once 
+        Big GOAL: Enable a downlaod to the user device of these things that are most likey going 
+        to be needed to produce faster speeds */
 
 
-    $.getJSON("http://142.11.205.3/talk/dadosTable.php",function(data){
+    $.getJSON("http://142.11.205.3/talk/dadosTable.php",function(data)
+    {
         console.log(data);
 
         var table = "";
         table += "<table><tbody>"
 
-        for (i in data){
+        for (i in data)
+        {
             //console.log(data[i]);
+            /* TODO: Add name to stylist table in DB */
             table += "<tr class='row100 body'>";
             table += "<td class='cell100 column3'>"+data[i]['id']+"</td>";
             table += "<td class='cell100 column1'>"+data[i]['fn']+"</td>";
@@ -24,7 +30,13 @@ $(document).ready(function(){
 
         table += "</tbody></table>"
 
+
+       
+
         document.getElementById("dadosTable").innerHTML = table;
+       
+   
+   
     });
 
     $.getJSON("http://142.11.205.3/talk/stylistTable.php",function(data){
@@ -46,7 +58,20 @@ $(document).ready(function(){
         table += "</tbody></table>"
 
         document.getElementById("stylistTable").innerHTML = table;
+   
+        var stylistSelectText = "";
+        stylistSelectText = "<select = 'stylistSelect'>";
+        for (i in data)
+        {
+            stylistSelectText += "<option = "+data[i]['id']+">"+data[i]['fn']+"</option>";
+        }
+        stylistSelectText += "</select>";
+        document.getElementById("stylistSelect").innerHTML = stylistSelectText;
+
     });
+
+    /*TODO: WHen a date is choosedn we would wuery the DB for times that are 
+        on that day and return to the user availebe dates */
 
     $("#styleFormSubmit").bind('click',function(){
         // If this button is clicked then send the name,email (DATA) to 
@@ -60,4 +85,17 @@ $(document).ready(function(){
         });
     });
 
+    $("#appFormSubmit").bind('click',function(){
+        // If this button is clicked then send the name,email (DATA) to 
+        // php script for processing 
+
+        var aName = $("#styleFormName").val();
+        var aEmail = $("#styleFormEmail").val();
+        var aDate
+
+        //$.getJSON("http://142.11.205.3/talk/appointmentPOST.php?style_name="+sName+"&style_email="+sEmail,function(data){
+        //    console.log(data);
+        //});
+    });
+    
 });

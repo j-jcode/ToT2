@@ -1,0 +1,88 @@
+Set up form submit for appointments
+
+Added date to html 
+
+
+mysql> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| blog               |
+| carwash            |
+| closet             |
+| jablog             |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| sys                |
+| talk               |
+| test               |
++--------------------+
+11 rows in set (0.00 sec)
+
+mysql> use talk;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++----------------+
+| Tables_in_talk |
++----------------+
+| appointments   |
+| dados          |
+| stylist        |
++----------------+
+3 rows in set (0.00 sec)
+
+mysql> desc appointments
+    -> ;
++-------------+-------------+------+-----+-------------------+-----------------------------+
+| Field       | Type        | Null | Key | Default           | Extra                       |
++-------------+-------------+------+-----+-------------------+-----------------------------+
+| id_app      | int(11)     | NO   | PRI | NULL              | auto_increment              |
+| id_dados    | int(11)     | NO   |     | NULL              |                             |
+| id_stylist  | int(11)     | NO   |     | NULL              |                             |
+| description | varchar(50) | YES  |     | NULL              |                             |
+| app_reg     | timestamp   | NO   |     | CURRENT_TIMESTAMP | on update CURRENT_TIMESTAMP |
+| start_time  | datetime    | YES  |     | NULL              |                             |
+| end_time    | datetime    | YES  |     | NULL              |                             |
++-------------+-------------+------+-----+-------------------+-----------------------------+
+7 rows in set (0.00 sec)
+
+mysql>
+
+
+Reconize what is needed at the moment(ATM):
+id of the user placing the appointment
+id of the stylist choosen : Vision (V1) - have a dropdown of the stylist names to be choosen ATM
+the desicrripption of the haircut
+the time the appoinment what created in the database (DB)
+the start time of the appointment (V2) - When a date is selected times are sent to the frontend for the user to select 
+end time of the appointment (/V2)
+
+This all needs to be sent via php to the database in order to successfully create a appointment object
+Question in Mind (QM): Do we need to keep track of the appointment through the user? Not really we wil use good database skilz
+ -----------------------(V1)----------------------------------
+https://www.w3schools.com/tags/tag_select.asp
+<select>
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</select>
+
+<select id="stylistSelect">
+  <option value="(styist_1_id)">(styist_1_name)</option>
+  <option value="(styist_2_id)">S(styist_2_name)</option>
+  <option value="(styist_3_id)">(styist_3_name)</option>
+  <option value="(styist_4_id)">(styist_4_name)</option>
+</select>
+
+Above contains varibles that are placed into html via js 
+
+Also show the id_dados in the username of the form (ATM)
+
+--------------------------(V1)-----------------------------
