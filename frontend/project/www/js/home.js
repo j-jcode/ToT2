@@ -29,7 +29,15 @@ $(document).ready(function(){
         }
 
         table += "</tbody></table>"
-
+   
+        var dadosSelectText = "";
+        dadosSelectText = "<select id= 'dadosSelect'>";
+        for (i in data)
+        {
+            dadosSelectText += "<option value= "+data[i]['id']+">"+data[i]['fn']+"</option>";
+        }
+        dadosSelectText += "</select>";
+        document.getElementById("dadoFormSelect").innerHTML = dadosSelectText;
 
        
 
@@ -60,13 +68,13 @@ $(document).ready(function(){
         document.getElementById("stylistTable").innerHTML = table;
    
         var stylistSelectText = "";
-        stylistSelectText = "<select = 'stylistSelect'>";
+        stylistSelectText = "<select id= 'stylistSelect'>";
         for (i in data)
         {
-            stylistSelectText += "<option = "+data[i]['id']+">"+data[i]['fn']+"</option>";
+            stylistSelectText += "<option value= "+data[i]['id']+">"+data[i]['fn']+"</option>";
         }
         stylistSelectText += "</select>";
-        document.getElementById("stylistSelect").innerHTML = stylistSelectText;
+        document.getElementById("stylistSelectForm").innerHTML = stylistSelectText;
 
     });
 
@@ -89,15 +97,16 @@ $(document).ready(function(){
         // If this button is clicked then send the name,email (DATA) to 
         // php script for processing 
 
-        
-        // var aName = $("#styleFormName").val();
-        var aEmail = $("#styleFormEmail").val();
+        /* We need to get all the data from the FRONTEND  */
+        var aID = $("#dadosSelect").val();
         var aDate = $("#styleFormDate").val();
+        var aS = $("#stylistSelect").val();
+        var aText = $("#hairDetail").val();
 
-
-        //$.getJSON("http://142.11.205.3/talk/appointmentPOST.php?style_name="+sName+"&style_email="+sEmail,function(data){
-        //    console.log(data);
-        //});
+        $.getJSON("http://142.11.205.3/talk/appointmentPOST.php?id_user="+aID+"&app_hair_date="+aDate+"&id_ST="+aS+"&hDetail="+aText,
+            function(data){
+                console.log(data);
+            });
     });
     
 });
