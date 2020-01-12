@@ -85,4 +85,11 @@ Above contains varibles that are placed into html via js
 
 Also show the id_dados in the username of the form (ATM)
 
+<select id="dadosSelect">
+  <option value="(dados_1_id)">(dados_1_name)</option>
+  <option value="(dados_2_id)">S(dados_2_name)</option>
+  <option value="(dados_3_id)">(dados_3_name)</option>
+  <option value="(dados_4_id)">(dados_4_name)</option>
+</select>
+
 --------------------------(V1)-----------------------------

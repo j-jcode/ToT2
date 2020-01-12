@@ -89,9 +89,11 @@ $(document).ready(function(){
         // If this button is clicked then send the name,email (DATA) to 
         // php script for processing 
 
-        var aName = $("#styleFormName").val();
+        
+        // var aName = $("#styleFormName").val();
         var aEmail = $("#styleFormEmail").val();
-        var aDate
+        var aDate = $("#styleFormDate").val();
+
 
         //$.getJSON("http://142.11.205.3/talk/appointmentPOST.php?style_name="+sName+"&style_email="+sEmail,function(data){
         //    console.log(data);
