@@ -1,0 +1,15 @@
+{
+    "name": "Talk of the Town",
+    "short_name": "Talk of the Town",
+    "start_url": "/frontpage.html",
+    "display": "standalone",
+    "backgorund_color": "#FFE9DD2",
+    "theme_color": "#FFE1C4",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            
+        }
+    ]
+
+}

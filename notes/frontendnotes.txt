@@ -1,0 +1,11 @@
+HOMEPAGE:
+
+-On the front page will be information about the shop
+	-Location (x) maybe picture?
+	-Services 
+	-Stylist 
+	-Description/Motto (x)
+
+-Create a button that allows user to make appointment and will redirect them to calendar 
+ 
+-Present User Login
